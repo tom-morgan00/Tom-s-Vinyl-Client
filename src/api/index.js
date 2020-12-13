@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export const api = axios.create({
-  baseURL: 'http://localhost:4000/api/v1',
+  baseURL: 'https://toms-vinyl-server.herokuapp.com/api/v1',
 });

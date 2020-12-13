@@ -113,30 +113,32 @@ export default function CartItemList({
 
   return (
     <table className={classes.table}>
-      <thead className={classes.tableHead}>
-        <th className={classes.tableImage}>
-          <h4>Image</h4>
-        </th>
-        <th className={classes.tableBodyText}>
-          <h4>Product</h4>
-        </th>
-        <th className={classes.tableBodyNums}>
-          <h4>Price</h4>
-        </th>
-        <th className={classes.tableButtons}>
-          <h4>Quantity</h4>
-        </th>
-        <th className={classes.tableRemove}>
-          <h4>Remove</h4>
-        </th>
-        <th className={classes.tableBodyNums}>
-          <h4>Total</h4>
-        </th>
+      <thead>
+        <tr className={classes.tableHead}>
+          <th className={classes.tableImage}>
+            <h4>Image</h4>
+          </th>
+          <th className={classes.tableBodyText}>
+            <h4>Product</h4>
+          </th>
+          <th className={classes.tableBodyNums}>
+            <h4>Price</h4>
+          </th>
+          <th className={classes.tableButtons}>
+            <h4>Quantity</h4>
+          </th>
+          <th className={classes.tableRemove}>
+            <h4>Remove</h4>
+          </th>
+          <th className={classes.tableBodyNums}>
+            <h4>Total</h4>
+          </th>
+        </tr>
       </thead>
 
       {items.map((item) => {
         return (
-          <tbody className={classes.tableBody} key={item._id}>
+          <tr className={classes.tableBody} key={item._id}>
             <td className={classes.tableImage}>
               <img
                 className={classes.image}
@@ -171,7 +173,7 @@ export default function CartItemList({
             <td className={classes.tableBodyNums}>
               {`£${calcItemTotal(item.quantity, item.price)}`}
             </td>
-          </tbody>
+          </tr>
         );
       })}
     </table>
