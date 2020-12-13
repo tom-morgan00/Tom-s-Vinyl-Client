@@ -73,7 +73,7 @@ export default function SignUp(props) {
     return () => {
       if (error) dispatch(resetError());
     };
-  }, [userInfo, error]);
+  }, [userInfo, error, history, dispatch]);
 
   const submitHandler = (e) => {
     e.preventDefault();

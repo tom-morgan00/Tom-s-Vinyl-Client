@@ -3,12 +3,16 @@ import React from 'react';
 import { Grid, Card, CardContent, CardActions, Button, makeStyles } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   card: {
     position: 'relative',
     padding: '1rem',
     fontSize: '1.4rem',
     lineHeight: '1.8rem',
+    [theme.breakpoints.down('xs')]: {
+      fontSize: '1.2rem',
+      padding: 0,
+    },
     '&:hover': {
       border: '0.04rem solid rgba(0, 0, 0, 0.2)',
       boxShadow: '2px 2px 5px 0 rgba(0, 0, 0, 0.2)',
@@ -33,6 +37,9 @@ const useStyles = makeStyles({
     margin: 0,
     fontSize: '1.2rem',
     padding: '0 0.5rem',
+    [theme.breakpoints.down('xs')]: {
+      fontSize: '1rem',
+    },
     '&:hover': {
       color: 'var(--mainLight)',
       backgroundColor: 'var(--mainBlue)',
@@ -49,7 +56,7 @@ const useStyles = makeStyles({
     padding: '0.5rem 0.5rem',
     borderBottomLeftRadius: '15%',
   },
-});
+}));
 
 export default function Product({ product, cartAddItem, cart }) {
   const classes = useStyles();
@@ -57,7 +64,7 @@ export default function Product({ product, cartAddItem, cart }) {
   const itemInCart = cart.some((item) => item._id === _id);
 
   return (
-    <Grid key={_id} item xs={12} sm={4} md={3}>
+    <Grid key={_id} item xs={6} sm={4} md={3}>
       <Card className={classes.card}>
         {itemInCart ? (
           <span className={classes.cardInCart}>

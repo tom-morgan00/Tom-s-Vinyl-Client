@@ -71,7 +71,7 @@ export default function Login() {
     return () => {
       dispatch(resetError());
     };
-  }, [userInfo]);
+  }, [userInfo, dispatch, history]);
 
   const submitHandler = (e) => {
     e.preventDefault();

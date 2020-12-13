@@ -138,42 +138,44 @@ export default function CartItemList({
 
       {items.map((item) => {
         return (
-          <tr className={classes.tableBody} key={item._id}>
-            <td className={classes.tableImage}>
-              <img
-                className={classes.image}
-                src={item.image}
-                alt={item.title}
-              />
-            </td>
-            <td className={classes.tableBodyText}>
-              <strong>{item.title}</strong>
-              <br />
-              {item.artist}
-            </td>
-            <td className={classes.tableBodyNums}>{`£${item.price}`}</td>
-            <td className={classes.tableButtons}>
-              <CartButtons
-                width="30%"
-                id={item._id}
-                quantity={item.quantity}
-                handleRemove={handleRemove}
-                increment={increment}
-                decrement={decrement}
-              />
-            </td>
-            <td
-              onClick={() => handleRemove(item._id)}
-              className={classes.tableRemove}
-            >
-              <Button variant="contained" className={classes.trashIcon}>
-                <i className="fas fa-trash" />
-              </Button>
-            </td>
-            <td className={classes.tableBodyNums}>
-              {`£${calcItemTotal(item.quantity, item.price)}`}
-            </td>
-          </tr>
+          <tbody key={item._id}>
+            <tr className={classes.tableBody}>
+              <td className={classes.tableImage}>
+                <img
+                  className={classes.image}
+                  src={item.image}
+                  alt={item.title}
+                />
+              </td>
+              <td className={classes.tableBodyText}>
+                <strong>{item.title}</strong>
+                <br />
+                {item.artist}
+              </td>
+              <td className={classes.tableBodyNums}>{`£${item.price}`}</td>
+              <td className={classes.tableButtons}>
+                <CartButtons
+                  width="30%"
+                  id={item._id}
+                  quantity={item.quantity}
+                  handleRemove={handleRemove}
+                  increment={increment}
+                  decrement={decrement}
+                />
+              </td>
+              <td
+                onClick={() => handleRemove(item._id)}
+                className={classes.tableRemove}
+              >
+                <Button variant="contained" className={classes.trashIcon}>
+                  <i className="fas fa-trash" />
+                </Button>
+              </td>
+              <td className={classes.tableBodyNums}>
+                {`£${calcItemTotal(item.quantity, item.price)}`}
+              </td>
+            </tr>
+          </tbody>
         );
       })}
     </table>

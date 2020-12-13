@@ -76,7 +76,7 @@ export default function OrderScreen() {
       setPostCode(postCode);
       setCountry(country);
     }
-  }, [userInfo, shippingAddress]);
+  }, [userInfo, shippingAddress, history]);
 
   const submitHandler = (e) => {
     e.preventDefault();

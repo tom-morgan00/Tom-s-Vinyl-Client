@@ -14,6 +14,6 @@ export default function LogOut(props) {
       history.push('/');
     };
     logOut();
-  }, []);
+  }, [history, dispatch]);
   return <Loader />;
 }
